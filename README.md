@@ -1,6 +1,6 @@
 # Buildkite Slack Incoming Webhook
 
-An example [Slack Incoming Webhook](https://api.slack.com/incoming-webhooks) for [Buildkite](https://buildkite.com/).
+Command [Buildkite](https://buildkite.com/) from your Slack chat with this example [Slack Incoming Webhook](https://api.slack.com/incoming-webhooks).
 
 ![](http://i.imgur.com/xwPIHSE.gif)
 
