@@ -35,12 +35,13 @@ app.listen(process.env.PORT || 3000, function() {
 
 function usage_help(res) {
   res.send(JSON.stringify({
-    text: [
-      "Available commands:",
-      "* `build <project> \"<message>\" <branch default:master> <commit default:HEAD>` (e.g. `build rockets \"Building from Slack\"`)"
+    text: "Available commands:\n" +
+      "```\n" +
+       "build <project> \"<message>\" <branch default:master> <commit default:HEAD>\n" +
+       "Example: build spacex/rockets \"Building from Slack\"\n" +
+      "```"
       // Add your own command help here
-    ].join("\n")
-  }));
+  });
 }
 
 function build_command(text, req, res) {
@@ -72,7 +73,7 @@ function build_command(text, req, res) {
       return res.send(JSON.stringify({text: "Buildkite API failed: " + responseCode + " " + responseBody}));
     } else {
       var responseJson = JSON.parse(responseBody);
-      return res.send(JSON.stringify({text: "Here’s your new build @" + req.body.user_name + ":" + responseJson.web_url}));
+      return res.send(JSON.stringify({text: "Here you go @" + req.body.user_name + ": " + responseJson.web_url}));
     }
   });
 }
