@@ -23,6 +23,8 @@ app.post('/', function(req, res){
 
   if (command == "build") {
     build_command(req, res);
+  } else if (command == "mycommand") {
+    // Add your own commands here
   } else {
     usage_help(res);
   }
@@ -34,8 +36,9 @@ app.listen(process.env.PORT || 3000, function() {
 
 function usage_help(res) {
   res.send([
-    "build <org>/<project> \"<message>\" <branch default:master> <commit default:HEAD> (e.g. build spacex/rockets)"
-    // More command help here
+    "Available commands:",
+    "build <org default:" + buildkite_default_org_slug + ">/<project> \"<message>\" <branch default:master> <commit default:HEAD> (e.g. build spacex/rockets)"
+    // Add your own command help here
   ].join("\n"));
 }
 
