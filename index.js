@@ -18,7 +18,7 @@ app.post('/', function(req, res){
     return res.status(401).send('Invalid token');
   }
 
-  var textWithoutTriggerWord = req.body.text.replace(new RegExp("^" + escapeRegExp(req.body.trigger_word), '').trim();
+  var textWithoutTriggerWord = req.body.text.replace(new RegExp("^" + escapeRegExp(req.body.trigger_word)), '').trim();
 
   if (command == /^build/) {
     build_command(req, res);
