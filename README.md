@@ -26,7 +26,7 @@ An example [Slack Incoming Webhook](https://api.slack.com/incoming-webhooks) for
 
 ## Personalizing
 
-Query or stop a build agent with the [Agents API](https://buildkite.com/docs/api)? List the last build for a project with the [Projects API](https://buildkite.com/docs/projects)? The sky’s the limit! And if it’s something everyone could use, send a pull request!
+Query or stop a build agent with the [Agents API](https://buildkite.com/docs/api)? List the last build for a project with the [Projects API](https://buildkite.com/docs/projects)? The sky’s the limit! And if it’s something everyone could use why not send a pull request.
 
 ## License
 
