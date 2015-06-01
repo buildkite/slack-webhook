@@ -11,7 +11,6 @@ var app = express();
 app.use(bodyParser.urlencoded());
 
 app.post('/', function(req, res){
-
   console.log('Received POST', req.headers, req.body);
 
   if (req.body.token != slack_token) {
@@ -19,9 +18,9 @@ app.post('/', function(req, res){
     return res.status(401).send('Invalid token');
   }
 
-  var command = req.body.text.split(" ")[0];
+  var textWithoutTriggerWord = req.body.text.replace(new RegExp("^" + escapeRegExp(req.body.trigger_word), '').trim();
 
-  if (command == "build") {
+  if (command == /^build/) {
     build_command(req, res);
   } else if (command == "mycommand") {
     // Add your own commands here
@@ -35,11 +34,13 @@ app.listen(process.env.PORT || 3000, function() {
 });
 
 function usage_help(res) {
-  res.send([
-    "Available commands:",
-    "build <org default:" + buildkite_default_org_slug + ">/<project> \"<message>\" <branch default:master> <commit default:HEAD> (e.g. build spacex/rockets)"
-    // Add your own command help here
-  ].join("\n"));
+  res.send(JSON.stringify({
+    text: [
+      "Available commands:",
+      "build <org default:" + buildkite_default_org_slug + ">/<project> \"<message>\" <branch default:master> <commit default:HEAD> (e.g. build spacex/rockets)"
+      // Add your own command help here
+    ].join("\n")
+  });
 }
 
 function build_command(req, res) {
@@ -68,10 +69,10 @@ function build_command(req, res) {
   }, function(responseCode, responseBody) {
     console.log("Build API response", responseCode, responseBody)
     if (responseCode >= 300) {
-      return res.send("Buildkite API failed: " + responseCode + " " + responseBody);
+      return res.send(JSON.stringify({text: "Buildkite API failed: " + responseCode + " " + responseBody}));
     } else {
       var responseJson = JSON.parse(responseBody);
-      return res.send("Build created! " + responseJson.web_url);
+      return res.send(JSON.stringify({text: "Build created! " + responseJson.web_url}));
     }
   });
 }
@@ -105,4 +106,8 @@ function post_to_buildkite(path, params, callback) {
 
   req.write(body);
   req.end();
+}
+
+function escapeRegExp(string){
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
