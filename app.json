@@ -1,0 +1,25 @@
+{
+  "name": "Buildkite Slack Slash Command",
+  "description": "An example Slack slash command for Buildkite",
+  "keywords": [
+    "ci",
+    "buildkite",
+    "slack",
+    "nodejs",
+    "chat",
+    "chatops"
+  ],
+  "website": "https://buildkite.com/",
+  "repository": "https://github.com/buildkite/slack-slash-command",
+  "env": {
+    "SLACK_TOKEN": {
+      "description": "The Slack slash command Token"
+    },
+    "BUILDKITE_API_TOKEN": {
+      "description": "A Buildkite API token"
+    },
+    "BUILDKITE_ORG_SLUG": {
+      "description": "The slug of your Buildkite organization"
+    }
+  }
+}
