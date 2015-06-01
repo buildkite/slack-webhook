@@ -73,7 +73,7 @@ function build_command(text, req, res) {
       return res.send(JSON.stringify({text: "Buildkite API failed: " + responseCode + " " + responseBody}));
     } else {
       var responseJson = JSON.parse(responseBody);
-      return res.send(JSON.stringify({text: "Here you go @" + req.body.user_name + ": " + responseJson.web_url}));
+      return res.send(JSON.stringify({text: ":package: Here you go @" + req.body.user_name + ": " + responseJson.web_url}));
     }
   });
 }
