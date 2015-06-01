@@ -11,15 +11,16 @@
   ],
   "website": "https://buildkite.com/",
   "repository": "https://github.com/buildkite/slack-slash-command",
+  "logo": "http://i.imgur.com/JDjeaCq.jpg",
   "env": {
     "SLACK_TOKEN": {
       "description": "The Slack slash command Token"
     },
     "BUILDKITE_API_TOKEN": {
-      "description": "A Buildkite API token"
+      "description": "A Buildkite API token with write_builds permission"
     },
-    "BUILDKITE_ORG_SLUG": {
-      "description": "The slug of your Buildkite organization"
+    "BUILDKITE_DEFAULT_ORG_SLUG": {
+      "description": "The default slug of your Buildkite organization to use for projects"
     }
   }
 }
