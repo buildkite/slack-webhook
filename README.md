@@ -6,15 +6,17 @@ An example [Slack Slash Command](https://api.slack.com/slash-commands) for [Buil
 
 ## Usage
 
+1. **Fork it**
+
 1. **Create a new Slash Command** on Slack. Copy the token.
 
 1. **Deploy it to Heroku** <br>[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-3. **Profit**
+1. **Profit**
 
 ## Personalising
 
-Type `/` in your Slack room to get a feel for all the other possibilities, and send a pull request!
+Type `/` in your Slack room to get a feel for all the other possibilities!
 
 ## License
 
