@@ -37,7 +37,7 @@ function usage_help(res) {
   res.send(JSON.stringify({
     text: [
       "Available commands:",
-      "build <org default:" + buildkite_default_org_slug + ">/<project> \"<message>\" <branch default:master> <commit default:HEAD> (e.g. build spacex/rockets)"
+      "* `build <project> \"<message>\" <branch default:master> <commit default:HEAD>` (e.g. `build rockets \"Building from Slack\"`)"
       // Add your own command help here
     ].join("\n")
   }));
@@ -72,7 +72,7 @@ function build_command(text, req, res) {
       return res.send(JSON.stringify({text: "Buildkite API failed: " + responseCode + " " + responseBody}));
     } else {
       var responseJson = JSON.parse(responseBody);
-      return res.send(JSON.stringify({text: "Build created! " + responseJson.web_url}));
+      return res.send(JSON.stringify({text: "Here’s your new build @" + req.body.user_name + ":" + responseJson.web_url}));
     }
   });
 }
