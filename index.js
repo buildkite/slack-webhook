@@ -41,7 +41,7 @@ function usage_help(res) {
        "Example: build spacex/rockets \"Building from Slack\"\n" +
       "```"
       // Add your own command help here
-  });
+  }));
 }
 
 function build_command(text, req, res) {
