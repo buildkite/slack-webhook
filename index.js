@@ -40,7 +40,7 @@ function usage_help(res) {
       "build <org default:" + buildkite_default_org_slug + ">/<project> \"<message>\" <branch default:master> <commit default:HEAD> (e.g. build spacex/rockets)"
       // Add your own command help here
     ].join("\n")
-  });
+  }));
 }
 
 function build_command(req, res) {
