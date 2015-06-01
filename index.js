@@ -44,7 +44,7 @@ function usage_help(res) {
 }
 
 function build_command(text, req, res) {
-  var buildCommandMatch = textWithoutTriggerWord.match(/^build (.*?) ["“](.*?)["”](?: ([^ ]+))?(?: ([^ ]+))?/);
+  var buildCommandMatch = text.match(/^build (.*?) ["“](.*?)["”](?: ([^ ]+))?(?: ([^ ]+))?/);
   if (!buildCommandMatch) return usage_help(res);
 
   var orgProjMatch = buildCommandMatch[1].match(/(.*)\/(.*)/);
