@@ -20,9 +20,9 @@ app.post('/', function(req, res){
 
   var textWithoutTriggerWord = req.body.text.replace(new RegExp("^" + escapeRegExp(req.body.trigger_word)), '').trim();
 
-  if (command == /^build/) {
-    build_command(req, res);
-  } else if (command == "mycommand") {
+  if (textWithoutTriggerWord.match(/^build/)) {
+    build_command(textWithoutTriggerWord, req, res);
+  } else if (textWithoutTriggerWord.match(/^mycommand/)) {
     // Add your own commands here
   } else {
     usage_help(res);
@@ -43,8 +43,8 @@ function usage_help(res) {
   }));
 }
 
-function build_command(req, res) {
-  var buildCommandMatch = req.body.text.match(/^build (.*?) ["“](.*?)["”](?: ([^ ]+))?(?: ([^ ]+))?/);
+function build_command(text, req, res) {
+  var buildCommandMatch = textWithoutTriggerWord.match(/^build (.*?) ["“](.*?)["”](?: ([^ ]+))?(?: ([^ ]+))?/);
   if (!buildCommandMatch) return usage_help(res);
 
   var orgProjMatch = buildCommandMatch[1].match(/(.*)\/(.*)/);
