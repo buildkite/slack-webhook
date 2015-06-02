@@ -1,6 +1,6 @@
 # Buildkite Slack Incoming Webhook
 
-Command [Buildkite](https://buildkite.com/) from your Slack chat with this example [Slack Incoming Webhook](https://api.slack.com/incoming-webhooks).
+Command [Buildkite](https://buildkite.com/) from your Slack chat with this example [Slack Outgoing Webhook](https://api.slack.com/outgoing-webhooks).
 
 ![](http://i.imgur.com/xwPIHSE.gif)
 
@@ -8,9 +8,14 @@ Command [Buildkite](https://buildkite.com/) from your Slack chat with this examp
 
 1. **Fork it**
 
-1. **Create a new Slash Command** on Slack. Copy the token.
+1. **Create a new Outgoing Webhook** on Slack. Copy the token.
 
 1. **Deploy it to Heroku** <br>[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+ 
+1. **Set the required config vars in Heroku** `heroku config:set XXX=xxx` 
+  * BUILDKITE_API_TOKEN
+  * BUILDKITE_DEFAULT_ORG_SLUG
+  * SLACK_TOKEN
 
 1. Head back to Slack and **set trigger words** to: `!buildkite,buildkite:`
 
