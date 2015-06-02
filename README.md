@@ -12,11 +12,6 @@ Command [Buildkite](https://buildkite.com/) from your Slack chat with this examp
 
 1. **Deploy it to Heroku** <br>[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
  
-1. **Set the required config vars in Heroku** `heroku config:set XXX=xxx` 
-  * BUILDKITE_API_TOKEN
-  * BUILDKITE_DEFAULT_ORG_SLUG
-  * SLACK_TOKEN
-
 1. Head back to Slack and **set trigger words** to: `!buildkite,buildkite:`
 
 1. **Copy the Heroku URL** into **URL(s)**
@@ -28,6 +23,14 @@ Command [Buildkite](https://buildkite.com/) from your Slack chat with this examp
 1. **Test it** by typing `!buildkite` in your Slack
 
 1. **Profit**
+
+## Configuration
+
+The following environment variables need to be set (this are set up automatically if you use the Heroku button above, otherwise use `heroku config:set XXX=xxx`):
+
+* `BUILDKITE_API_TOKEN` - A Buildkite API token with `write_builds` permission
+* `BUILDKITE_DEFAULT_ORG_SLUG` - The default org slug to use so you can refer to a project w/o the org
+* `SLACK_TOKEN` - The token from Slack when you created the outgoing webhook
 
 ## Personalizing
 
