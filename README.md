@@ -26,7 +26,7 @@ Command [Buildkite](https://buildkite.com/) from your Slack chat with this examp
 
 ## Configuration
 
-The following environment variables need to be set (this are set up automatically if you use the Heroku button above, otherwise use `heroku config:set XXX=xxx`):
+If you deployed it yourself (not using the above Heroku Deploy button) you'll need to set the following environment variables:
 
 * `BUILDKITE_API_TOKEN` - A Buildkite API token with `write_builds` permission
 * `BUILDKITE_DEFAULT_ORG_SLUG` - The default org slug to use so you can refer to a project w/o the org
